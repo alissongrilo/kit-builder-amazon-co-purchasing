@@ -14,7 +14,7 @@ describe 'Graph' do
 
       File.delete(file.path)
 
-      expect { graph.scc }.to output("4 \n3 \n2 1 0 \n").to_stdout
+      expect { graph.scc }.to output("4 \n3 \n2 1 0 \nTotal SCC: 3\n").to_stdout
     end
 
     it 'should return the correct scc' do
@@ -27,7 +27,7 @@ describe 'Graph' do
 
       File.delete(file.path)
 
-      expect { graph.scc }.to output("3 \n2 \n1 \n0 \n").to_stdout
+      expect { graph.scc }.to output("3 \n2 \n1 \n0 \nTotal SCC: 4\n").to_stdout
     end
 
     it 'should return the correct scc' do
@@ -40,20 +40,7 @@ describe 'Graph' do
 
       File.delete(file.path)
 
-      expect { graph.scc }.to output("5 \n3 \n4 \n6 \n2 1 0 \n").to_stdout
-    end
-
-    skip 'should return the correct scc' do
-      file = File.new('test.txt', 'w')
-      file.puts("0 1\n0 3\n1 2\n1 4\n2 0\n2 6\n3 2\n4 5\n4 6\n5 6\n5 7\n5 8\n5 9\n6 4\n7 9\n8 9\n9 8\n")
-      file.close
-
-      graph = Graph.new(11)
-      graph.read(file.path)
-
-      File.delete(file.path)
-
-      expect { graph.scc }.to output("8 9 \n7 \n5 4 6 \n3 2 1 0 \n10 \n").to_stdout
+      expect { graph.scc }.to output("5 \n3 \n4 \n6 \n2 1 0 \nTotal SCC: 5\n").to_stdout
     end
 
     it 'should return the correct scc' do
@@ -66,7 +53,7 @@ describe 'Graph' do
 
       File.delete(file.path)
 
-      expect { graph.scc }.to output("4 3 2 1 0 \n").to_stdout
+      expect { graph.scc }.to output("4 3 2 1 0 \nTotal SCC: 1\n").to_stdout
     end
   end
 end
