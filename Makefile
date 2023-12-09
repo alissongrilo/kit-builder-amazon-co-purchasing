@@ -1,8 +1,8 @@
 build:
-	bundle install
+	cd src && bundle install
 
 run:
-	ruby main.rb
+	cd src && ruby main.rb
 
 test:
-	bundle exec rspec --format documentation
+	cd src && bundle exec rspec --format documentation
